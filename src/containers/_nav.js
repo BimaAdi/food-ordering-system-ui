@@ -3,7 +3,7 @@ const _nav =  [
     _tag: 'CSidebarNavItem',
     name: 'Order Active',
     to: '/order-active',
-    style: { 'color': 'black'}
+    // style: { 'color': 'black'}
   },
   {
     _tag: 'CSidebarNavItem',

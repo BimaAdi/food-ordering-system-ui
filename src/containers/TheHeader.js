@@ -1,5 +1,5 @@
 import React from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import {
   CHeader,
   CToggler,
@@ -7,23 +7,19 @@ import {
   CHeaderNav
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
-
 import { 
   TheHeaderDropdown
 }  from './index'
 
 const TheHeader = () => {
-  const dispatch = useDispatch()
-  const sidebarShow = useSelector(state => state.sidebarShow)
+  const dispatch = useDispatch();
 
   const toggleSidebar = () => {
-    const val = [true, 'responsive'].includes(sidebarShow) ? false : 'responsive'
-    dispatch({type: 'set', sidebarShow: val})
+    dispatch({type: 'TOGGLE_SIDEBAR', payload: {}});
   }
 
   const toggleSidebarMobile = () => {
-    const val = [false, 'responsive'].includes(sidebarShow) ? true : 'responsive'
-    dispatch({type: 'set', sidebarShow: val})
+    dispatch({type: 'TOGGLE_SIDEBAR', payload: {}});
   }
 
   return (

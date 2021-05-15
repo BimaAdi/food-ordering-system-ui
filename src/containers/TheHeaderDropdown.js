@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { useSelector } from 'react-redux';
 import {
   // CBadge,
   CDropdown,
@@ -9,6 +10,7 @@ import {
 // import CIcon from '@coreui/icons-react'
 
 const TheHeaderDropdown = () => {
+  const AuthUser = useSelector(state => state.authUserReducer);
   return (
     <CDropdown
       inNav
@@ -17,7 +19,7 @@ const TheHeaderDropdown = () => {
     >
       <CDropdownToggle className="c-header-nav-link" caret={false}>
         <div>
-          admin@bootstrapmaster.com
+          {AuthUser.email}
         </div>
       </CDropdownToggle>
       <CDropdownMenu className="pt-0" placement="bottom-end">

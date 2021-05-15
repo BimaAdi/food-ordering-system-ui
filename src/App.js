@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { HashRouter, Route, Switch } from 'react-router-dom';
+import { HashRouter, Route, Switch, Redirect } from 'react-router-dom';
 import './scss/style.scss';
 
 const loading = (
@@ -9,6 +9,7 @@ const loading = (
 )
 
 // Containers
+const Auth = React.lazy(() => import('./containers/Auth'));
 const TheLayout = React.lazy(() => import('./containers/TheLayout'));
 
 // Pages
@@ -26,10 +27,19 @@ class App extends Component {
           <React.Suspense fallback={loading}>
             <Switch>
               <Route exact path="/login" name="Login Page" render={props => <Login {...props}/>} />
-              <Route path="/order-active" render={props => <TheLayout page={<OrderActive />} /> }/>
-              <Route path="/order-history" render={props => <TheLayout page={<OrderHistory />} /> }/>
-              <Route path="/menu" render={props => <TheLayout page={<Menu />} /> }/>
-              <Route path="/user" render={props => <TheLayout page={<User />} /> }/>
+              <Route path="/order-active"> 
+                <Auth page={<TheLayout page={<OrderActive />}/>} />
+              </Route>
+              <Route path="/order-history"> 
+                <Auth page={<TheLayout page={<OrderHistory />}/>} />
+              </Route>
+              <Route path="/menu"> 
+                <Auth page={<TheLayout page={<Menu />}/>} />
+              </Route>
+              <Route path="/user"> 
+                <Auth page={<TheLayout page={<User />}/>} />
+              </Route>
+              <Redirect from='*' to='/order-active' />
             </Switch>
           </React.Suspense>
       </HashRouter>
