@@ -19,8 +19,8 @@ const TheHeaderDropdown = () => {
 
   let logout = async () => {
     try {
-      let res = await axios.post(`${API.url}/logout`, {},{
-          headers: API.defaultHeader
+      await axios.post(`${API.url}/logout`, {},{
+          headers: API.defaultHeader()
       });
       dispatch({
         type: 'LOGOUT'

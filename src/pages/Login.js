@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Redirect, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import {
   CButton,
   CCard,
@@ -36,7 +36,7 @@ const Login = () => {
         email: email,
         password: password
       }
-      let res = await axios.post(`${API.url}/login`, data, API.defaultHeader);
+      let res = await axios.post(`${API.url}/login`, data, API.defaultHeader());
 
       setIsError(false);
       dispatch({

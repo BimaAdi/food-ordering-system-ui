@@ -12,7 +12,6 @@ const loading = (
 )
 
 // Containers
-// const Auth = React.lazy(() => import('./containers/Auth'));
 const ProtectedRoute = React.lazy(() => import('./containers/ProtectedRoute'));
 const TheLayout = React.lazy(() => import('./containers/TheLayout'));
 
@@ -23,39 +22,7 @@ const Menu = React.lazy(() => import('./pages/Menu'));
 const User = React.lazy(() => import('./pages/User'));
 const Login = React.lazy(() => import('./pages/Login'));
 
-// class App extends Component {
-
-//   render() {
-//     return (
-//       <HashRouter>
-//           <React.Suspense fallback={loading}>
-//             <Switch>
-//               <Route exact path="/login" name="Login Page" render={props => <Login {...props}/>} />
-//               <Route exact path="/order-active"> 
-//                 <TheLayout page={<OrderActive />}/>
-//               </Route>
-//               <Route exact path="/order-history"> 
-//                 <TheLayout page={<OrderHistory />}/>
-//               </Route>
-//               <Route exact path="/menu"> 
-//                 <TheLayout page={<Menu />}/>
-//               </Route>
-//               <Route exact path="/user"> 
-//                 <TheLayout page={<User />}/>
-//               </Route>
-//               {/* <Route path="/user"> 
-//                 <Auth page={<TheLayout page={<User />}/>} />
-//               </Route> */}
-//               <Redirect from='*' to='/order-active' />
-//             </Switch>
-//           </React.Suspense>
-//       </HashRouter>
-//     );
-//   }
-// }
-
 const App = () => {
-
   const dispatch = useDispatch();
 
   useEffect(() => {
