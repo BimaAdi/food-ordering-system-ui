@@ -17,6 +17,8 @@ const TheLayout = React.lazy(() => import('./containers/TheLayout'));
 
 // Pages
 const OrderActive = React.lazy(() => import('./pages/OrderActive'));
+const OrderCreate = React.lazy(() => import('./pages/OrderCreate'));
+const OrderEdit = React.lazy(() => import('./pages/OrderEdit'));
 const OrderHistory = React.lazy(() => import('./pages/OrderHistory'));
 const Menu = React.lazy(() => import('./pages/Menu'));
 const User = React.lazy(() => import('./pages/User'));
@@ -59,6 +61,8 @@ const App = () => {
           <Switch>
             <Route exact path="/login" name="Login Page" render={props => <Login {...props}/>} />
             <ProtectedRoute exact path="/order-active" component={<TheLayout page={<OrderActive />}/>}/>
+            <ProtectedRoute exact path="/order-active/create" component={<TheLayout page={<OrderCreate />}/>}/>
+            <ProtectedRoute exact path="/order-active/:id/edit" component={<TheLayout page={<OrderEdit />}/>}/>
             <ProtectedRoute exact path="/order-history" component={<TheLayout page={<OrderHistory />}/>}/>
             <ProtectedRoute exact path="/menu" component={<TheLayout page={<Menu />}/>}/>
             <ProtectedRoute exact path="/user" component={<TheLayout page={<User />}/>}/> 

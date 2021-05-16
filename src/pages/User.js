@@ -2,8 +2,7 @@ import React from 'react';
 import { 
     CCard,
     CCardHeader,
-    CCardBody,
-    CDataTable
+    CCardBody
 } from '@coreui/react';
 
 const User = () => {
