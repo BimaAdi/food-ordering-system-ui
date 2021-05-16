@@ -20,12 +20,7 @@ const _nav =  [
     name: 'User',
     to: '/user',
     // icon: 'cil-pencil',
-  },
-  {
-    _tag: 'CSidebarNavItem',
-    name: 'Login Page',
-    to: '/login',
-  },
+  }
 ]
 
 export default _nav

@@ -1,8 +1,8 @@
 const initialState = {
-    is_login: true,
-    username: 'TestGuy',
-    email: 'TestGuy@local',
-    role: 'admin'
+    is_login: false,
+    username: '',
+    email: '',
+    role: ''
 }
 
 const authUserReducer = ( state = initialState, {type, payload}) => {
@@ -17,9 +17,9 @@ const authUserReducer = ( state = initialState, {type, payload}) => {
         case 'LOGOUT':
             return {
                 is_login: false,
-                username: null,
-                email: false,
-                role: false
+                username: '',
+                email: '',
+                role: ''
             }
         default:
             return state

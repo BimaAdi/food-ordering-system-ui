@@ -1,8 +1,16 @@
 import React from 'react';
+import { 
+    CCard,
+    CCardBody
+} from '@coreui/react';
 
 const OrderActive = () => {
     return (
-        <h1>OrderActive</h1>
+        <CCard>
+            <CCardBody>
+                <h1>OrderActive</h1>
+            </CCardBody>
+        </CCard>
     );
 }
 
