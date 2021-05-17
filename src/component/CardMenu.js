@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
     CCard,
     CCardImg,
@@ -8,7 +9,7 @@ import {
     CButton
 } from '@coreui/react';
 
-const CardMenu = ({id, name, imgUrl, price}) => {
+const CardMenu = ({id, name, imgUrl, price, deleteMenu}) => {
     return (
         <CCard >
             <CCardImg
@@ -32,8 +33,8 @@ const CardMenu = ({id, name, imgUrl, price}) => {
             <CCardBody>
                 <CCardTitle>{name}</CCardTitle>
                 <CCardText>Rp {price}</CCardText>
-                <CButton href="#">Edit</CButton>
-                <CButton href="#">Delete</CButton>
+                <Link to={`/menu/${id}/edit`} className="btn">Edit</Link>
+                <CButton onClick={() => deleteMenu(id)}>Delete</CButton>
             </CCardBody>
         </CCard>
     );

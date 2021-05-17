@@ -70,7 +70,6 @@ const OrderHistory = () => {
                 orders: summary
             }
             
-            console.log(selectedOrder);
             setOrder(selectedOrder);
             setModal(true);
         })
