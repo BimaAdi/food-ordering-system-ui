@@ -34,7 +34,7 @@ const OrderHistory = () => {
         axios.get(`${API.url}/order`, {
             headers: API.defaultHeader(),
             params: {
-                is_done: false
+                is_done: true
             }
         })
         .then((res) => {

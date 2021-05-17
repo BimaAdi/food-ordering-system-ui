@@ -43,9 +43,28 @@ const OrderActive = () => {
     }, []);
 
     // method
-    let closeOrder = (id) => {
-        console.log('close order');
-        console.log(id);
+    let closeOrder = async (id) => {
+        try {
+            await axios.put(`${API.url}/order/${id}/done`, {}, {
+                headers: API.defaultHeader()
+            });
+            let res = await axios.get(`${API.url}/order`, {
+                headers: API.defaultHeader(),
+                params: {
+                    is_done: false
+                }
+            });
+            setTableData(res.data.map((item) => {
+                return {
+                    order_number: item.order_number,
+                    tabel_number: item.table_number,
+                    waiter: item.user.name,
+                    action: item.id
+                }
+            }));
+        } catch (err) {
+            console.err(err);
+        }
     }
 
     let deleteOrder = (id) => {
@@ -94,7 +113,9 @@ const OrderActive = () => {
                     'action':
                       (item)=>(
                         <td>
-                            {AuthUser.role === 'cashier' || AuthUser.role === 'admin' ? <CButton color="success" onClick={(e) => closeOrder(item.action)}>Close Order</CButton> : ''}
+                            {AuthUser.role === 'cashier' || AuthUser.role === 'admin' 
+                            ? <CButton color="success" onClick={(e) => closeOrder(item.action)}>Close Order</CButton> 
+                            : ''}
                             <Link to={`/order-active/${item.action}/edit`} className="btn btn-warning ml-2">Show/Edit</Link>
                             <CButton color="danger" className="ml-2" onClick={(e) => deleteOrder(item.action)}>Delete</CButton>
                         </td>
